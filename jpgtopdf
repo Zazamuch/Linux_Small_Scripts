@@ -1,0 +1,28 @@
+#!/bin/bash
+
+#skrypt wymaga do dzialania pakietu pdftk
+
+#pobranie katalogu
+echo "Podaj katalog:"
+read DIR
+
+if [ -d $DIR ] ; then 
+echo "OK"
+else 
+echo "Sciezka nie jest katalogiem!"
+exit 1
+fi
+
+LISTA=`ls -l $DIR | grep .jpg | awk '{ print $8 }'`
+cd $DIR
+LICZNIK=0
+for PLIK  in $LISTA ; do
+echo "Converting $PLIK..."
+convert $PLIK tmpmerge-$PLIK.pdf
+done
+LISTA=`ls -l $DIR | grep tmpmerge- | awk '{ print $8 }'`
+pdftk $LISTA output output.pdf
+echo "Cleaning tmp files..."
+rm tmpmerge-*
+echo "Finished!"
+#convert *.jpg out.pdf

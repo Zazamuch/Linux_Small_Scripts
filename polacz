@@ -1,0 +1,34 @@
+#!/bin/bash
+
+#-s
+#plik istnieje i nie jest pusty
+#-w
+#plik można zapisywać
+#-r
+#plik można czytać
+
+################## Sprawdzanie neolityczne ################## 
+
+
+
+if [ ! -s $1 ] ;then 
+echo "Plik $1 nie istnieje lub jest pusty" 
+elif [ ! -r $1 ] ;then 
+echo "Nie masz prawa do odczytu $1" 
+elif [ ! -w $1 ] ;then 
+echo "Nie masz prawa do zapisu $1" 
+elif [ ! -s $2 ];then 
+echo "Plik $2 nie istnieje lub jest pusty" 
+elif [ ! -r $2 ];then 
+echo "Nie masz prawa do czytania $2" 
+else 
+cat $1 $2 > wynik3476345678656789743657677687
+cat wynik3476345678656789743657677687 > $1
+rm wynik3476345678656789743657677687
+fi 
+
+
+################## Laczenie neolityczne ################## 
+
+
+chmod +x polacz

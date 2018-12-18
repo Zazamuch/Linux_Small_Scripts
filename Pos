@@ -1,0 +1,4 @@
+#!/bin/bash
+string1="tojestto"
+string2="bu"
+echo ${string2:5:1}

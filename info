@@ -1,0 +1,11 @@
+#!/bin/bash
+
+Plik=$(ls -l| grep ^-| wc -l)
+katalog=$(ls -l| grep ^d| wc -l)
+#Katolg=$(ls -la| grep ^d| wc -l)
+#Zlicza katalogi "." i ".."
+
+echo "Katalogów: $katalog"
+echo "Plików: $Plik"
+
+chmod +x $info

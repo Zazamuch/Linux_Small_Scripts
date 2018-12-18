@@ -1,0 +1,36 @@
+#!/bin/bash
+longest () {
+	Pos=1
+	alfabet="abcdefghijklmnopqrstuvwxyz"
+	while [ $Pos -lt 27 ]
+		do
+		Len=1
+		a=${alfabet:$Pos:$Len} #bierze pierwszą litere i kolejne z alfabetu
+
+		Pos_string=1 #ktora litera w stringu.
+		ss1=${1:$Pos_string:Len}
+		ss2=${1:$Pos_string:Len}
+		if [ ${#1} -gt ${#2} ]
+		then
+			loop=${#1}
+		else
+			loop=${#2}
+		fi
+
+			while [ $loop -gt 0 ]
+				do
+		case "$a" in
+			"$ss1") newS = $newS + $ss1
+			;;
+			"$ss2") newS = $newS + $ss2
+			;;
+		esac
+		((Pos_string++))
+		((loop--))
+		done
+
+		((Pos++))
+		done
+	}
+echo $newS
+longest "$1" "$2"

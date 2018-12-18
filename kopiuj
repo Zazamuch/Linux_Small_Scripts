@@ -1,0 +1,33 @@
+#!/bin/bash
+
+
+
+if [ ! -s $1 ] ;then 
+echo "Plik $1 nie istnieje lub jest pusty" 
+elif [ ! -r $1 ] ;then 
+echo "Nie masz prawa do odczytu $1"
+elif [ ! $# -gt 2 ] ;then 
+echo "Podałeś za mało argumentów, przy wywoływaniu skryptu. Potrzeba minimum dwóch."
+#else
+#echo "Plik jest właściwy"
+fi 
+
+
+
+
+for i in $@
+do
+	if [ $i = $1 ] ;then
+	a=2
+	else
+		if [ -d $i ] ;then
+		cp $1 $i
+		else
+		echo "$i Nie jest katalogiem"
+		fi
+	fi
+done
+
+
+
+chmod +x kopiuj

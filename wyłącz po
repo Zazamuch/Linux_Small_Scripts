@@ -1,0 +1,11 @@
+#!/bin/bash
+sleep 120
+while true; do
+#if [ `pidof -s VirtualBox` =="" ]; then
+if [ `pidof -s $1` =="" ]; then
+shutdown -h +00
+fi
+sleep 5
+done
+
+#nie działa

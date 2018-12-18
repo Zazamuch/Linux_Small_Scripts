@@ -1,0 +1,35 @@
+#!/bin/bash
+
+#daty logowan
+#ilość logowan w danym dniu
+
+
+czyistnieje=`last | grep -w $1 | wc -l`
+
+if [ $czyistnieje == 0 ]
+then
+echo "Nie istnieje uzytkownik."
+else
+b=1
+	for a in Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+	do
+		for i in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31
+		do
+		ls=`last | grep -w "$a  $i" | wc -l`
+		#lo=`last -o | grep -w "$a  $i" | wc -l`
+		
+		if [ "$ls" = 0 ] ;then
+		b=$b+1
+		else
+		echo "Dnia $i miesiąca $a uzytkownik $1 zalogował się $ls"
+		#Wersja surowa
+		echo "$a $i $ls"
+		b=$b+1
+		fi
+		done
+	done
+fi
+
+
+
+chmod +x sprawdz

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+sudo mount /dev/sdb2 /media/plazma
+sudo mount /dev/sdb3 /media/plazma
+sudo mount /dev/sdb4 /media/plazma
+sudo mount /dev/sdb5 /media/plazma
+sudo mount /dev/sdb7 /media/plazma
+sudo mount /dev/sda1 /media/plazma
